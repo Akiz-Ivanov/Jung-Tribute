@@ -244,7 +244,7 @@ p {
     padding: 1rem;
   }
 
-  #pictures {
+  .pictures {
     max-width: 50vw;
     height: auto;
 
@@ -416,5 +416,62 @@ p {
   .emma_figure1 {
     display: block;
     margin-top: -2rem;
+  }
+}
+
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 200px;
+
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+
+  transform: translateX(-100%);
+  /* Hide initially */
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-show {
+  transform: translateX(0);
+}
+
+
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 15px;
+}
+
+.sidebar li:hover {
+  text-decoration: underline;
+  text-decoration-thickness: from-font;
+  transform: scale(1.01);
+}
+
+.sidebar a {
+  color: #ffdeb9;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.content {
+  margin-left: 220px;
+  /* Offset for the sidebar */
+  max-width: 700px;
+  padding: 20px;
+}
+
+
+@media (max-width: 1024px) {
+  .sidebar {
+    display: none;
   }
 }
