@@ -1,6 +1,7 @@
 html {
   font-family: Georgia, Tahoma;
-
+  scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 
 body {
@@ -17,34 +18,13 @@ body {
   margin: 3rem auto;
 }
 
-details {
-  color: #E0F2E9;
-  font-style: italic;
-  font-family: Georgia;
-  font-weight: bold;
-  font-size: 1.5rem;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  margin: 2em;
-
+abbr {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-underline-position: from-font;
+  cursor: help;
 }
 
-summary {
-  margin: 0 auto;
-}
-
-details p {
-  text-align: center;
-  border-bottom: 5px groove #FFC6AC;
-  padding: 1em;
-
-}
-
-section>details>p {
-  border: none;
-}
 
 details:hover {
   cursor: pointer;
@@ -55,12 +35,22 @@ details[open]:hover {
   color: white;
 }
 
+
 blockquote {
   font-style: italic;
   font-family: Georgia;
   font-weight: bold;
   color: #E0F2E9;
   font-size: 1.5rem;
+}
+
+.hidden {
+  opacity: 0;
+  transition: all 1s;
+}
+
+.show {
+  opacity: 1;
 }
 
 
@@ -163,6 +153,19 @@ img {
   height: auto;
   margin: auto;
   padding-top: 1rem;
+  transition: transform 0.4s;
+}
+
+img:hover {
+  transform: scale(1.03);
+}
+
+.big-image {
+  display: inline;
+}
+
+.big-image:hover {
+  transform: none;
 }
 
 .img_border {
@@ -197,14 +200,15 @@ a:hover {
 #img-caption {
   font-style: italic;
   color: black;
-  padding-top: 0;
   font-weight: bold;
+  padding-block: 0.5rem;
+
 }
 
 figcaption {
   color: white;
   font-size: 1.2rem;
-  padding: 0.5rem;
+  padding-top: 1rem;
 }
 
 .grid {
@@ -214,17 +218,21 @@ figcaption {
 
 }
 
-
 p {
-  font-size: 2rem;
+  font-size: 1.5rem;
   grid-column: 2 / 3;
   text-align: left;
+  line-height: 1.3em;
+  margin: 1rem;
+  margin-top: 2rem;
+
 }
 
 .emma_jung {
   max-height: 40rem;
   width: auto;
   border-radius: 10px;
+
 }
 
 .emma_figure1 {
@@ -253,7 +261,7 @@ p {
   figure {
     grid-column: 1 / 4;
     display: inline-block;
-    
+    overflow: hidden;
   }
 
   .border-line {
@@ -263,7 +271,6 @@ p {
   .marriage {
     font-size: 1.5rem;
     grid-column: 2 / 4;
-    padding-left: 5rem;
   }
 
   .emma_figure {
@@ -271,7 +278,6 @@ p {
     max-height: 45rem;
     width: auto;
     margin: 0;
-    
   }
 
   /*Different layout type
@@ -303,7 +309,7 @@ p {
     font-size: 1rem;
   }
 
-  #pictures {
+  .pictures {
     max-width: 50vw;
     height: auto;
   }
@@ -321,7 +327,6 @@ p {
   .marriage {
     grid-column: 1 / 4;
     font-size: 1rem;
-  
   }
 
   .emma_figure1 {
@@ -337,7 +342,7 @@ p {
     height: auto;
   }
 
-  #pictures {
+  .pictures {
     margin-top: 1rem;
   }
 
@@ -365,6 +370,9 @@ p {
   details p {
     font-size: 1rem;
   }
+
+      
+    
 }
 
 @media only screen and (min-width: 1023px) and (max-width: 1300px) {
@@ -393,7 +401,7 @@ p {
     font-size: 1rem;
   }
 
-  #pictures {
+  .pictures {
     max-width: 50vw;
     height: auto;
   }
@@ -417,22 +425,49 @@ p {
     display: block;
     margin-top: -2rem;
   }
+
+  
+}
+
+
+.accordion {
+  background-color: hsl(266, 9%, 12%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1.5rem;
+  margin: 0 auto;
+  width: 70%;
+
+}
+
+.accordion-panel {
+  border: 2px solid white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-title {
+  padding: 1rem;
+  font-size: 1.5rem;
 }
 
 
 .sidebar {
+  background-color: #28252C;
   position: fixed;
   left: 0;
   top: 0;
   height: 100vh;
   width: 200px;
-
   padding: 20px;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
 
   transform: translateX(-100%);
   /* Hide initially */
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.6s;
 }
 
 .sidebar-show {
@@ -474,4 +509,39 @@ p {
   .sidebar {
     display: none;
   }
+}
+
+.more-quotes {
+  text-align: center;
+}
+
+svg {
+  
+    
+}
+
+.test {
+  display: grid;
+  grid-template-rows: 0.7fr;
+  transition: 500ms;
+  background-color: hsl(266, 9%, 12%);
+  border: 2px solid white;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  
+}
+
+.test h1 {
+  overflow: hidden;
+}
+
+.test span {
+  overflow: hidden;
+  font-size: 24px;
+}
+
+.test:hover {
+  
+  grid-template-rows: 1fr;
 }

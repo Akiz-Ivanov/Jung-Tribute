@@ -1,5 +1,3 @@
-import './style.css'
-
 const hiddenElements = document.querySelectorAll('.hidden');
 const sidebar = document.querySelector(".sidebar");
 const img = document.getElementById("img-div");
